@@ -1,0 +1,64 @@
+name: 'CreateTagAndRelease'
+description: 'GitHub action to create tags and/or releases'
+author: 'RandLabs Inc.'
+
+branding:
+  color: "green"
+  icon: "tag"
+
+inputs:
+  tag:
+    description: 'Tag name'
+    required: true
+  create_release:
+    description: 'Set to true to indicate if the release must be created. Implies tag creation too.'
+    required: false
+    default: true
+  create_tag:
+    description: 'Set to true to indicate if only the tag must be created.'
+    required: false
+    default: true
+  repo: 'Target repository in <owner-or-company>/<repository> format. Defaults to the one that fired the action.'
+    required: false
+  sha:
+    description: 'The commit hash to tag. Defaults to the one that fired the action.'
+    required: false
+  branch:
+    description: 'If a branch name is specified. The last commit hash on that branch will be used.'
+    required: false
+  message:
+    description: 'Sets the tag message. Only applies if just the tag is created.'
+    required: false
+  draft:
+    description: 'Set to true to mark the release as draft. Only applies when a release is created.'
+    required: false
+  pre_release:
+    description: 'Set to true to mark the release as a pre-release. Only applies when a release is created.'
+    required: false
+  auto_notes:
+    description: 'Whether to automatically generate the name and body for this release. If name is specified, the specified name will be used; otherwise, a name will be automatically generated. If body is specified, the body will be pre-pended to the automatically generated notes. Only applies when a release is created.'
+    required: false
+  name:
+    description: 'Release name. Only applies when a release is created.'
+    required: false
+  body:
+    description: 'Text describing the contents of the release. Only applies when a release is created.'
+    required: false
+  ignore_existing:
+    description: 'Set to false to stop if the tag/release already exists.'
+    required: false
+    default: true
+
+outputs:
+  id:
+    description: 'The release id if `create_release=true` was specified.'
+  url:
+    description: 'The release url if `create_release=true` was specified.'
+  upload_url:
+    description: 'The release artifact upload url if `create_release=true` was specified.'
+  tag_sha:
+    description: 'The hash of the new tag. Only when just a tag is created.'
+
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
