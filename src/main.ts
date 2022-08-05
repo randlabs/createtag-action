@@ -11,6 +11,24 @@ async function run(): Promise<void> {
 			throw new Error('GITHUB_TOKEN environment variable not found. pass `GITHUB_TOKEN` as env');
 		}
 
+		// Create the GitHub accessor
+		const octokit = github.getOctokit(token);
+
+		// Get target owner and repository
+		let { repo, owner } = github.context.repo;
+		const ownerRepo = core.getInput('repo');
+		if (ownerRepo) {
+			const ownerRepoItems = ownerRepo.split('/');
+			if (ownerRepoItems.length != 2) {
+				throw new Error('the specified `repo` is invalid');
+			}
+			owner = ownerRepoItems[0].trim();
+			repo = ownerRepoItems[1].trim();
+			if (owner.length == 0 || repo.length == 0) {
+				throw new Error('the specified `repo` is invalid');
+			}
+		}
+
 		// Get tag to delete
 		const tagName = core.getInput('tag', { required: true });
 		if (!tagName) {
@@ -35,23 +53,6 @@ async function run(): Promise<void> {
 		input = core.getInput('ignore_existing');
 		const ignoreExisting = (!input) || isYes(input);
 
-		// Get target owner and repository
-		let { repo, owner } = github.context.repo;
-		const ownerRepo = core.getInput('repo');
-		if (ownerRepo) {
-			const ownerRepoItems = ownerRepo.split('/');
-			if (ownerRepoItems.length != 2) {
-				throw new Error('the specified `repo` is invalid');
-			}
-			owner = ownerRepoItems[0].trim();
-			repo = ownerRepoItems[1].trim();
-			if (owner.length == 0 || repo.length == 0) {
-				throw new Error('the specified `repo` is invalid');
-			}
-		}
-
-		// Create the GitHub accessor
-		const octokit = github.getOctokit(token);
 
 		// Get commit hash to use if one was specified
 		let sha = core.getInput('sha');
