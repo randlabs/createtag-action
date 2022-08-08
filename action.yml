@@ -18,7 +18,8 @@ inputs:
     description: 'Set to true to indicate if only the tag must be created.'
     required: false
     default: true
-  repo: 'Target repository in <owner-or-company>/<repository> format. Defaults to the one that fired the action.'
+  repo:
+    description: 'Target repository in <owner-or-company>/<repository> format. Defaults to the one that fired the action.'
     required: false
   sha:
     description: 'The commit hash to tag. Defaults to the one that fired the action.'
