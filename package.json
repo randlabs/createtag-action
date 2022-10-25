@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "private": true,
   "description": "GitHub action to create tags and/or releases",
-  "main": "dist/main.js",
+  "main": "lib/main.js",
   "scripts": {
     "build": "tsc",
     "lint": "eslint src/**/*.ts",
