@@ -1,6 +1,6 @@
 {
   "name": "createtag-action",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "description": "GitHub action to create tags and/or releases",
   "main": "lib/main.js",
