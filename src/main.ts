@@ -53,7 +53,6 @@ async function run(): Promise<void> {
 		input = core.getInput('ignore_existing');
 		const ignoreExisting = (!input) || isYes(input);
 
-
 		// Get commit hash to use if one was specified
 		let sha = core.getInput('sha');
 		if (sha) {
