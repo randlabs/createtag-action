@@ -13,11 +13,11 @@ inputs:
   create_release:
     description: 'Set to true to indicate if the release must be created. Implies tag creation too.'
     required: false
-    default: true
+    default: 'true'
   create_tag:
     description: 'Set to true to indicate if only the tag must be created.'
     required: false
-    default: true
+    default: 'true'
   repo:
     description: 'Target repository in <owner-or-company>/<repository> format. Defaults to the one that fired the action.'
     required: false
@@ -48,7 +48,7 @@ inputs:
   ignore_existing:
     description: 'Set to false to stop if the tag/release already exists.'
     required: false
-    default: true
+    default: 'true'
 
 outputs:
   id:
@@ -61,5 +61,5 @@ outputs:
     description: 'The hash of the new tag. Only when just a tag is created.'
 
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/index.js'
