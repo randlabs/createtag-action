@@ -10,11 +10,11 @@ inputs:
   tag:
     description: 'Tag name'
     required: true
-  create_release:
+  create-release:
     description: 'Set to true to indicate if the release must be created. Implies tag creation too.'
     required: false
     default: 'true'
-  create_tag:
+  create-tag:
     description: 'Set to true to indicate if only the tag must be created.'
     required: false
     default: 'true'
@@ -33,10 +33,10 @@ inputs:
   draft:
     description: 'Set to true to mark the release as draft. Only applies when a release is created.'
     required: false
-  pre_release:
+  pre-release:
     description: 'Set to true to mark the release as a pre-release. Only applies when a release is created.'
     required: false
-  auto_notes:
+  auto-notes:
     description: 'Whether to automatically generate the name and body for this release. If name is specified, the specified name will be used; otherwise, a name will be automatically generated. If body is specified, the body will be pre-pended to the automatically generated notes. Only applies when a release is created.'
     required: false
   name:
@@ -45,7 +45,7 @@ inputs:
   body:
     description: 'Text describing the contents of the release. Only applies when a release is created.'
     required: false
-  ignore_existing:
+  ignore-existing:
     description: 'Set to false to stop if the tag/release already exists.'
     required: false
     default: 'true'
@@ -55,9 +55,9 @@ outputs:
     description: 'The release id if `create_release=true` was specified.'
   url:
     description: 'The release url if `create_release=true` was specified.'
-  upload_url:
+  upload-url:
     description: 'The release artifact upload url if `create_release=true` was specified.'
-  tag_sha:
+  tag-sha:
     description: 'The hash of the new tag. Only when just a tag is created.'
 
 runs:

@@ -28,11 +28,11 @@ inputs:
   tag:
     description: 'Tag name'
     required: true
-  create_release:
+  create-release:
     description: 'Set to true to indicate if the release must be created. Implies tag creation too.'
     required: false
     default: true
-  create_tag:
+  create-tag:
     description: 'Set to true to indicate if only the tag must be created.'
     required: false
     default: true
@@ -44,7 +44,7 @@ inputs:
   branch:
     description: 'If a branch name is specified. The last commit hash on that branch will be used.'
     required: false
-  ignore_existing:
+  ignore-existing:
     description: 'Set to false to stop if the tag/release already exists.'
     required: false
     default: true
@@ -63,10 +63,10 @@ inputs:
   draft:
     description: 'Set to true to mark the release as draft.'
     required: false
-  pre_release:
+  pre-release:
     description: 'Set to true to mark the release as a pre-release.'
     required: false
-  auto_notes:
+  auto-notes:
     description: 'Whether to automatically generate the name and body for this release. If name is specified, the specified name will be used; otherwise, a name will be automatically generated. If body is specified, the body will be pre-pended to the automatically generated notes.'
     required: false
 ```
@@ -90,7 +90,7 @@ outputs:
     description: 'The release id.'
   url:
     description: 'The release url.'
-  upload_url:
+  upload-url:
     description: 'The release artifact upload url.'
 ```
 
@@ -98,7 +98,7 @@ outputs:
 
 ```YML
 outputs:
-  tag_sha:
+  tag-sha:
     description: 'The hash of the new tag.'
 ```
 
